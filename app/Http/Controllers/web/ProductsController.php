@@ -9,11 +9,14 @@ use App\Models\ImageProduct;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//use Symfony\Component\HttpFoundation\Request;
 
 class ProductsController extends Controller
 {
     public function index(){
-    	return view('admin.product.index');
+
+		$products = Product::orderBy('product','asc')->paginate(15);
+    	return view('admin.product.index', compact('products'));
     }
 
     public function store(Request $request){
@@ -65,7 +68,38 @@ class ProductsController extends Controller
 		
 		return redirect()->back();
 
-    }
+	}
+	
+	public function show($id){
+		$product = Product::with('imageRelation')->where('id',$id)->first();
+
+		//dd($product);
+
+		return view('admin.product.detail',compact('product'));
+
+	}
+
+
+	public function update(Request $request){
+		$product =  Product::where('id', $request->id)->first();
+
+		$imagesProduct = ImagesProduct::where('product_id',$request->id)->get();
+
+		DB::beginTransaction();
+
+		try{
+			$product->update([
+				'product' => $request->product,
+    			'price'  => $request->price,
+    			'stock'  => $request->stock,
+    			'description'  => $request->description,
+			]);
+
+			DB::commit();
+		}catch(Exception $e){
+			dd($d);
+		}
+	}
 
 
 }
