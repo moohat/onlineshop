@@ -5145,6 +5145,7 @@ Did you mean this?
 #53 C:\\xampp\\htdocs\\onlineshop\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #54 {main}
 "} 
+<<<<<<< HEAD
 [2018-11-15 14:29:10] local.ERROR: Route [products.update] not defined. (View: C:\xampp\htdocs\onlineshop\resources\views\admin\product\index.blade.php) {"userId":1,"email":"refixz86@lazday.com","exception":"[object] (ErrorException(code: 0): Route [products.update] not defined. (View: C:\\xampp\\htdocs\\onlineshop\esources\\views\\admin\\product\\index.blade.php) at C:\\xampp\\htdocs\\onlineshop\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:374, InvalidArgumentException(code: 0): Route [products.update] not defined. at C:\\xampp\\htdocs\\onlineshop\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:374)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\onlineshop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(InvalidArgumentException), 1)
@@ -5434,3 +5435,5 @@ Did you mean this?
 #39 C:\\xampp\\htdocs\\onlineshop\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #40 {main}
 "} 
+=======
+>>>>>>> 5851a111f416d2c5f5b3f2785a571c5579c74835

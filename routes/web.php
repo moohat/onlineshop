@@ -27,7 +27,10 @@ Route::get('/users', 'web\UserController@users')->name('users');
 Route::get('/products', 'web\ProductsController@index')->name('products.index');
 Route::post('/products', 'web\ProductsController@store')->name('products.store');
 Route::post('/products', 'web\ProductsController@store')->name('products.store');
+<<<<<<< HEAD
 Route::post('/products/update', 'web\ProductsController@update')->name('products.update');
+=======
+>>>>>>> 5851a111f416d2c5f5b3f2785a571c5579c74835
 Route::get('/product/{idproduct}', 'web\ProductsController@show')->name('product.show');
 });
 

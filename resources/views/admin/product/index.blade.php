@@ -138,7 +138,11 @@
                     <h4 class="modal-title">Edit Data</h4>
                 </div>
                 <div class="modal-body">
+<<<<<<< HEAD
                     <form action="{{ route("products.update") }}" method="post" class="form" enctype="multipart/form-data">
+=======
+                    <form action="#" method="post" class="form" enctype="multipart/form-data">
+>>>>>>> 5851a111f416d2c5f5b3f2785a571c5579c74835
 
                         @csrf
                         <input type="hidden" name="id" id="id-product" value="">

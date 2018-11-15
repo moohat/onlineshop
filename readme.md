@@ -1,4 +1,5 @@
 # onlineshop
+<<<<<<< HEAD
 Onlineshop merupakan projek pembuatan aplikasi onlineshop dengan laravel dan Android Studio Course by Lazday.
 merupakan program kursus secara online dalam pembuatan onlineshop dengan mamanfaatkan teknologi laravel dan android. program kursus berdurasi selama 12 minggu yang dimulai sejak awal oktober 2018 dan target selesai akhir desember 2018.
 program kurusus ini menitik beratkan tentang pembelajaran framework laravel dan android
@@ -19,3 +20,6 @@ github dan bahasa pemrograman yang sedang dipelajari
 
 # Tim Lazday
 aplikasi ini dibuat berdasarkan video online course yang difasilitasi oleh lazday. terima kasih kepada tim lazday atas materi dan bimbingannya, semoga ilmu yang dipelajari ini bermanfaat untuk saya dan semua peserta dan semoga semuanya yang terlibat diberkahi di dunia dan akherat.
+=======
+Onlineshop dengan laravel dan Android Studio Course by Lazday
+>>>>>>> 5851a111f416d2c5f5b3f2785a571c5579c74835
