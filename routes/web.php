@@ -26,6 +26,8 @@ Route::group( ['prefix' => 'admin', 'middleware'=> ['auth']], function(){
 Route::get('/users', 'web\UserController@users')->name('users');
 Route::get('/products', 'web\ProductsController@index')->name('products.index');
 Route::post('/products', 'web\ProductsController@store')->name('products.store');
-
+Route::post('/products', 'web\ProductsController@store')->name('products.store');
+Route::post('/products/update', 'web\ProductsController@update')->name('products.update');
+Route::get('/product/{idproduct}', 'web\ProductsController@show')->name('product.show');
 });
 
