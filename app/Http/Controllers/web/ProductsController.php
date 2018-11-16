@@ -15,13 +15,6 @@ use App\Http\Controllers\Controller;
 class ProductsController extends Controller
 {
     public function index(){
-<<<<<<< HEAD
-=======
-
-		$products = Product::orderBy('product','asc')->paginate(15);
-    	return view('admin.product.index', compact('products'));
-    }
->>>>>>> 5851a111f416d2c5f5b3f2785a571c5579c74835
 
       $products = Product::orderBy('product','asc')->paginate(15);
       return view('admin.product.index', compact('products'));
@@ -135,38 +128,7 @@ public function update(Request $request){
 
 
 
-	}
-	
-	public function show($id){
-		$product = Product::with('imageRelation')->where('id',$id)->first();
-
-		//dd($product);
-
-		return view('admin.product.detail',compact('product'));
-
-	}
-
-
-	public function update(Request $request){
-		$product =  Product::where('id', $request->id)->first();
-
-		$imagesProduct = ImagesProduct::where('product_id',$request->id)->get();
-
-		DB::beginTransaction();
-
-		try{
-			$product->update([
-				'product' => $request->product,
-    			'price'  => $request->price,
-    			'stock'  => $request->stock,
-    			'description'  => $request->description,
-			]);
-
-			DB::commit();
-		}catch(Exception $e){
-			dd($d);
-		}
-	}
+    }
 
 
     DB::commit();
