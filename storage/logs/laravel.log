@@ -5588,3 +5588,7 @@ Did you mean this?
 #35 C:\\xampp\\htdocs\\onlineshop\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #36 {main}
 "} 
+[2018-11-16 07:34:51] local.ERROR: Cannot use Illuminate\Support\Facades\Response as Response because the name is already in use {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot use Illuminate\\Support\\Facades\\Response as Response because the name is already in use at C:\\xampp\\htdocs\\onlineshop\\app\\Http\\Controllers\\Api\\UserController.php:12)
+[stacktrace]
+#0 {main}
+"} 
