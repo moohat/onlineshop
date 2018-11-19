@@ -12,14 +12,41 @@ use Illuminate\Support\Facades\Response;
 
 class UserController extends Controller
 {
-    public function users(){
-    	$users = User::orderBy('name')->paginate(15);
+	public function users(){
+		$users = User::orderBy('name')->paginate(15);
 
 
     	//dd($users);
 
-    	return UsersResource::collection($users);
+		return UsersResource::collection($users);
 	}
+
+
+	public function user($id){
+		$user = User::where('id', $id)->first();
+
+		if(count($user) <=0){
+			return Response::json([
+				'status'=>[
+					"code" =>400,
+					"description"=>"Bade Request"
+				]
+			], 400);
+
+		}
+
+
+		return(new UsersResource($user))
+		->additional([
+			'status'=>[
+				"code"=>200,
+				"description"=> "OK"
+			]
+		])->response()->setStatusCode(200);
+	}
+
+
+
 	
 	public function login(Request $request){
 
@@ -30,7 +57,7 @@ class UserController extends Controller
 					"code" =>401,
 					"description"=>"credential is wrong"
 				]
-				], 401);
+			], 401);
 
 
 		}
@@ -46,6 +73,64 @@ class UserController extends Controller
 			]
 		])->response()->setStatusCode(202);
 		
+	}
+
+
+	public function register(Request $request){
+
+		// return $request->all();
+		$this->validate($request,[
+			'name'=>'required|min:3',
+			'email' => 'required|unique:users', 
+			'password' => 'required|min:3',
+		]);
+
+		$newUser = User::create([
+			'name' => $request->name,
+			'email' => $request->email,
+			'password' => bcrypt($request->password),
+			'api_token' => bcrypt($request->email)
+		]);
+
+		return(new UsersResource($newUser))
+		->additional([
+			'status'=>[
+				"code"=>201,
+				"description"=> "OK"
+			]
+		])->response()->setStatusCode(201);
+
+	}
+
+
+	public function logout($id){
+
+		$user = User::where('id', $id)->first();
+		//return $user;
+
+
+		if(count($user) <=0){
+			return Response::json([
+				'status'=>[
+					"code" =>400,
+					"description"=>"Bade Request"
+				]
+			], 400);
+
+		}else{
+			
+				Auth::logout();
+
+			return Response::json([
+				'status'=>[
+					"code" =>200,
+					"description"=>"OK"
+				]
+			], 200);
+
+		
+		}
+
 	}
 
 	
